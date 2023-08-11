@@ -8,3 +8,20 @@ def product_list(request):
     return JsonResponse(data)
 
 
+def product_detail(request, pk):
+    try:
+        product = Product.objects.get(pk=pk)
+        data = {"product": {
+            "id": product.id,
+            "description": product.description,
+            "price": product.price,
+            "active": product.active
+        }}
+    except Product.DoesNotExist:
+        data = {"error": {
+            "code": 404,
+            "message": "Product not found!"
+        }}
+    return JsonResponse(data)
+
+
