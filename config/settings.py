@@ -22,7 +22,7 @@ env_file_path = os.path.join(BASE_DIR, '.env')
 environ.Env.read_env(env_file_path)
 
 # Carica il SECRET_KEY dal file .env
-SECRET_KEY = env('SECRET_KEY')
+# SECRET_KEY = env('SECRET_KEY')
 
 # Uses env variable
 # SECRET_KEY = env('SECRET_KEY')
