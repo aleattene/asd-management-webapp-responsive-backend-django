@@ -11,14 +11,26 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 import os
-from dotenv import load_dotenv
+import environ
 from pathlib import Path
-
-# Load .env file
-load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+env = environ.Env()
+env_file_path = os.path.join(BASE_DIR, '.env')
+environ.Env.read_env(env_file_path)
+
+# Carica il SECRET_KEY dal file .env
+SECRET_KEY = env('SECRET_KEY')
+
+# Uses env variable
+# SECRET_KEY = env('SECRET_KEY')
+# DEBUG = env('DEBUG', default=False)
+# DATABASES = {
+#     'default': env.db(),
+# }
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
