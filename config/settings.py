@@ -21,17 +21,6 @@ env = environ.Env()
 env_file_path = os.path.join(BASE_DIR, '.env')
 environ.Env.read_env(env_file_path)
 
-# Carica il SECRET_KEY dal file .env
-# SECRET_KEY = env('SECRET_KEY')
-
-# Uses env variable
-# SECRET_KEY = env('SECRET_KEY')
-# DEBUG = env('DEBUG', default=False)
-# DATABASES = {
-#     'default': env.db(),
-# }
-
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
@@ -56,6 +45,7 @@ INSTALLED_APPS = [
     #
     'rest_framework',
     #
+    'home',
     'products',
 ]
 
@@ -87,6 +77,7 @@ TEMPLATES = [
         },
     },
 ]
+
 
 WSGI_APPLICATION = 'config.wsgi.application'
 

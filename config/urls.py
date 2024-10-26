@@ -18,6 +18,10 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
+    # Homepage
+    path('', include('home.urls')),
+    # Admin Area
     path('admin/', admin.site.urls),
+    # APIs
     path('api/', include('products.api.urls'))
 ]
