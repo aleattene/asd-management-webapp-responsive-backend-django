@@ -1,0 +1,64 @@
+{% load static %}
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <!-- Brand -->
+    <a class="navbar-brand" href="/">
+      <img src="{% static 'img/logo.jpg' %}" alt="ASD-Logo" width="100" height="auto" class="d-inline-block align-text-top">
+    </a>
+
+    <!-- Toggler Button -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navbar Links -->
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <!-- Dropdown Gestione Operatori -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="gestioneOperatoriDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Gestione Operatori
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="gestioneOperatoriDropdown">
+            <li><a class="dropdown-item" href="#">Gestione Servizi</a></li>
+            <li><a class="dropdown-item" href="#">Gestione Documentazione</a></li>
+            <li><a class="dropdown-item" href="#">Gestione Anagrafiche</a></li>
+            <li><a class="dropdown-item" href="#">Gestione Bandi</a></li>
+            <li><a class="dropdown-item" href="#">Gestione Profilo</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#}">Logout</a></li>
+          </ul>
+        </li>
+
+        <!-- Dropdown Gestione Utente -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="gestioneUtenteDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Gestione Utente
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="gestioneUtenteDropdown">
+            <li><a class="dropdown-item" href="#">Gestione Atleti</a></li>
+            <li><a class="dropdown-item" href="#">Servizi ASD</a></li>
+            <li><a class="dropdown-item" href="#">Gestione Profilo</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#}">Logout</a></li>
+          </ul>
+        </li>
+
+        <!-- Dropdown Admin -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="profiloDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Admin
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profiloDropdown">
+            <li><a class="dropdown-item" href="#">Gestione Operatori</a></li>
+            <li><a class="dropdown-item" href="#">Gestione Utenti</a></li>
+            <li><a class="dropdown-item" href="#">Gestione Profilo</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#}">Logout</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
