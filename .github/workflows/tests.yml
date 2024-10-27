@@ -32,11 +32,13 @@ jobs:
         run: python manage.py migrate
 
       - name: Run tests
-        run: coverage run manage.py test && coverage report --show-missing
+        run: |
+          coverage run manage.py test && coverage report --show-missing
 
       - name: Upload test results to Codecov
         if: ${{ !cancelled() }}
-        uses: codecov/codecov-action@v3
+        uses: codecov/codecov-action@v4
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
+
 
