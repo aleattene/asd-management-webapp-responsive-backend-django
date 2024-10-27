@@ -6,6 +6,7 @@
 ![Django](https://img.shields.io/badge/Built%20with-Django-092E20)
 ![Django Rest Framework](https://img.shields.io/badge/Built%20with-DRF-red)
 [![Tests](https://github.com/aleattene/asd-management-webapp-responsive-backend-django/actions/workflows/tests.yml/badge.svg)](https://github.com/aleattene/asd-management-webapp-responsive-backend-django/actions/workflows/tests.yml)
+[![codecov](https://codecov.io/gh/aleattene/asd-management-webapp-responsive-backend-django/graph/badge.svg?token=452QWRN2E6)](https://codecov.io/gh/aleattene/asd-management-webapp-responsive-backend-django)
 [![GitHub commits](https://badgen.net/github/commits/aleattene/asd-management-webapp-responsive-backend-django)](https://github.com/aleattene/asd-management-webapp-responsive-backend-django/commits/)
 [![GitHub last commit](https://img.shields.io/github/last-commit/aleattene/asd-management-webapp-responsive-backend-django)](https://github.com/aleattene/asd-management-webapp-responsive-backend-django/commits/)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://github.com/aleattene/asd-management-webapp-responsive-backend-django/pulls)
