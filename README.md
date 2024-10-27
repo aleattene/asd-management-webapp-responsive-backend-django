@@ -26,8 +26,6 @@ https://asd-management-django.vercel.app/
 ## Installation
 Follow these steps to set up and run the project locally.
 
-<hr/>
-
 ### 1. Clone the Repository
 Clone the repository to your local machine using Git:
 ```bash
@@ -70,8 +68,6 @@ pip install -r requirements.txt
 
 The project uses environment variables to manage sensitive information and configuration settings. 
 Follow these steps to set up your environment variables.
-
-<hr/>
 
 ### 1 Create a `.env` File
 In the root directory of the project, create a file named `.env`
@@ -166,3 +162,5 @@ to the `main` branch).
 
 ## License
 This project is licensed under the [MIT License](https://it.wikipedia.org/wiki/Licenza_MIT).
+
+<hr/>
