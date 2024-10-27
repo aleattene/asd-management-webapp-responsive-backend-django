@@ -1,20 +1,27 @@
-<!DOCTYPE html>
+{% extends 'base.html' %}
+
+{% block title %}{{block.super}} - Lista Prodotti{% endblock %}
+
+{% block content %}
+
 <html>
-<head>
-    <title>Lista Prodotti</title>
-</head>
-<body>
-    <h1>Prodotti Disponibili</h1>
-    <ul>
-        {% for product in products %}
-            <li>
-                <a href="{% url 'products:product-detail' product.pk %}">
-                    {{ product.description }} - €{{ product.price }}
-                </a>
-            </li>
-        {% empty %}
-            <li>Nessun prodotto disponibile.</li>
-        {% endfor %}
-    </ul>
-</body>
+    <head>
+        <title>Lista Prodotti</title>
+    </head>
+    <body>
+        <h1>Prodotti Disponibili</h1>
+        <ul>
+            {% for product in products %}
+                <li>
+                    <a href="{% url 'products:product-detail' product.pk %}">
+                        {{ product.description }} - €{{ product.price }}
+                    </a>
+                </li>
+            {% empty %}
+                <li>Nessun prodotto disponibile.</li>
+            {% endfor %}
+        </ul>
+    </body>
 </html>
+
+{% endblock %}
