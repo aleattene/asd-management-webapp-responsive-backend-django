@@ -22,6 +22,8 @@ urlpatterns = [
     path('', include('home.urls')),
     # Admin Area
     path('admin/', admin.site.urls),
+    # Templates
+    path('products/', include('products.urls')),
     # APIs
     path('api/', include('products.api.urls'))
 ]
