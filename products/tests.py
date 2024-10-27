@@ -1,3 +1,32 @@
 from django.test import TestCase
+from django.urls import reverse
+from .models import Product
 
-# Create your tests here.
+
+class ProductViewsTest(TestCase):
+    def setUp(self):
+        self.product = Product.objects.create(
+            description='Test Product',
+            price=19.99,
+            available=True
+        )
+
+    def test_product_list_view(self):
+        url = reverse('products:product-list')
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, 'Test Product')
+        self.assertTemplateUsed(response, 'products/product_list.html')
+
+    def test_product_detail_view(self):
+        url = reverse('products:product-detail', args=[self.product.id])
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, 'Test Product')
+        # self.assertContains(response, '€19.99')
+        self.assertTemplateUsed(response, 'products/product_detail.html')
+
+    def test_product_detail_view_not_found(self):
+        url = reverse('products:product-detail', args=[999])
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 404)
