@@ -1,7 +1,4 @@
 from rest_framework import viewsets
-from rest_framework.renderers import JSONRenderer
-
-from products.api.renderers import CustomBrowsableAPIRenderer
 from products.models import Product
 from products.api.serializers import ProductSerializer
 from core.permissions import IsAdminOrReadOnly
