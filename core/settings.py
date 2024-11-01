@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 import os
+import sys
+
 import environ
 from pathlib import Path
 
@@ -105,6 +107,26 @@ DATABASES = {
         'PORT': os.getenv('DB_PORT'),
     }
 }
+
+# Local Testing - SQLite
+if 'test' in sys.argv:
+    DATABASES['default'] = {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+
+# if 'test' in sys.argv:
+#     DATABASES['default'] = {
+#             'ENGINE': 'django.db.backends.postgresql',
+#             'NAME': os.getenv('POSTGRES_DATABASE_TEST'),
+#             'USER': os.getenv('POSTGRES_USER_TEST'),
+#             'PASSWORD': os.getenv('POSTGRES_PASSWORD_TEST'),
+#             'HOST': os.getenv('POSTGRES_HOST_TEST'),
+#             'PORT': os.getenv('DB_PORT_TEST'),
+#         }
+
+
+
 
 
 # DATABASE_URL = os.getenv('DATABASE_URL')
