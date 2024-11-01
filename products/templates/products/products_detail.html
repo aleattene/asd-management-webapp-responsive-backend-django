@@ -12,7 +12,7 @@
         <h1>{{ product.description }}</h1>
         <p>Prezzo: €{{ product.price }}</p>
         <p>Disponibile: {{ product.available|yesno:"Sì,No" }}</p>
-        <a href="{% url 'products:product-list' %}">Torna alla lista prodotti</a>
+        <a href="{% url 'products:products-list' %}">Torna alla lista prodotti</a>
     </body>
 </html>
 

@@ -5,13 +5,13 @@ from ..models import Product
 
 
 class ProductListCreateApiViewTest(APITestCase):
-    def test_get_product_list(self):
+    def test_get_products_list(self):
         # Create two test-products
         Product.objects.create(description="Prodotto1", price=10.0)
         Product.objects.create(description="Prodotto2", price=15.0)
 
         # Call the reverse function to get the URL of the product-list view
-        url = reverse('product-list')
+        url = reverse('products-list')
         response = self.client.get(url)
 
         # Check if the response status code is 200 OK
