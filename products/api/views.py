@@ -1,16 +1,12 @@
-from django.shortcuts import get_object_or_404
-from rest_framework import mixins, generics
+from rest_framework import viewsets
+from products.models import Product
+from products.api.serializers import ProductSerializer
+from core.permissions import IsAdminOrReadOnly
 
-from ..models import Product
-from .serializers import ProductSerializer
 
-
-class ProductListCreateApiView(generics.ListCreateAPIView):
+class ProductViewSet(viewsets.ModelViewSet):
+    permission_classes = [IsAdminOrReadOnly]
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
 
-
-class ProductDetailApiView(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Product.objects.all()
-    serializer_class = ProductSerializer
 
