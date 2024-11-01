@@ -8,7 +8,8 @@ class ProductViewsTest(TestCase):
         self.product = Product.objects.create(
             description='Test Product',
             price=19.99,
-            available=True
+            available=True,
+            image='products/default.jpg'
         )
 
     def test_product_list_view(self):
