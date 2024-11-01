@@ -15,6 +15,18 @@
     <!-- Navbar Links -->
     <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <!-- Temporary -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="sportwig" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            SportWig
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="sportwig">
+            <li><a class="dropdown-item" href="{% url 'products:products-list' %}">Lista Servizi</a></li>
+            <li><a class="dropdown-item" href="{% url 'api-products-list' %}">API - Lista Servizi</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#}">Logout</a></li>
+          </ul>
+
         <!-- Dropdown Gestione Operatori -->
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="gestioneOperatoriDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
