@@ -15,10 +15,12 @@
 
 *Work in Progress....*
 
-Backend deploy (django-vercel / postgres-supabase):
+**Backend** deploy (**django**-vercel / **postgres**-supabase):
+
 https://asd-management-django.vercel.app/
 
-Frontend deploy (react-netlify):
+Frontend deploy (**react**-netlify):
+
 https://asd-management.netlify.app/
 
 ![image](https://user-images.githubusercontent.com/74595044/153876039-85241269-cc8b-40ec-94db-9def28df9d5e.png)
