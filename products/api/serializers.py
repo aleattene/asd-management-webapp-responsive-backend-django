@@ -7,3 +7,13 @@ class ProductSerializer(serializers.ModelSerializer):
         model = Product
         fields = '__all__'
 
+        extra_kwargs = {
+            'description': {
+                'help_text': 'Inserire una descrzione dettagliata del prodotto.'
+            },
+            'price': {
+                'help_text': 'Inserire il prezzo del prodotto.'
+            },
+            # Other fields here if needed
+        }
+

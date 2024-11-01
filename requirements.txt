@@ -2,6 +2,7 @@ asgiref==3.8.1
 coverage==7.6.4
 Django==5.1.2
 django-environ==0.11.2
+django-extensions==3.2.3
 djangorestframework==3.15.2
 path==17.0.0
 pytz==2024.2

@@ -10,8 +10,8 @@ class ProductListCreateApiViewTest(APITestCase):
         Product.objects.create(description="Prodotto1", price=10.0)
         Product.objects.create(description="Prodotto2", price=15.0)
 
-        # Call the reverse function to get the URL of the product-list view
-        url = reverse('products-list')
+        # Call the reverse function to get the URL of the products-list view
+        url = reverse('products-api-list')
         response = self.client.get(url)
 
         # Check if the response status code is 200 OK
