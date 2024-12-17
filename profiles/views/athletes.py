@@ -1,49 +1,44 @@
-from django.shortcuts import render, get_object_or_404, redirect
+from django.urls import reverse_lazy
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from profiles.models.athletes import Athlete
 from profiles.forms.athletes import AthleteForm
 
 
-def athlete_list(request):
-    """View function for listing all athletes."""
-    athletes = Athlete.objects.all()
-    return render(request, "profiles/athletes_list.html", {"athletes_list": athletes})
+class AthleteListView(ListView):
+    """View for listing all athletes."""
+    model = Athlete
+    template_name = "profiles/athletes_list.html"
+    context_object_name = "athletes_list"
 
 
-def athlete_detail(request, pk):
-    """View function for showing a single athlete."""
-    athlete = get_object_or_404(Athlete, pk=pk)
-    return render(request, "athletes/athlete_detail.html", {"athlete_detail": athlete})
+class AthleteDetailView(DetailView):
+    """View for displaying a single athlete."""
+    model = Athlete
+    template_name = "profiles/athlete_detail.html"
+    context_object_name = "athlete_detail"
 
 
-def athlete_create(request):
-    """View function for creating a new athlete."""
-    if request.method == "POST":
-        form = AthleteForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect("athlete_list")
-    else:
-        form = AthleteForm()
-    return render(request, "athletes/athlete_form.html", {"form": form})
+class AthleteCreateView(CreateView):
+    """View for creating a new athlete."""
+    model = Athlete
+    form_class = AthleteForm
+    template_name = "profiles/athlete_form.html"
+    success_url = reverse_lazy("athlete_list")
 
 
-def athlete_update(request, pk):
-    """View function for updating an athlete."""
-    athlete = get_object_or_404(Athlete, pk=pk)
-    if request.method == "POST":
-        form = AthleteForm(request.POST, instance=athlete)
-        if form.is_valid():
-            form.save()
-            return redirect("athlete_detail", pk=athlete.pk)
-    else:
-        form = AthleteForm(instance=athlete)
-    return render(request, "athletes/athlete_form.html", {"form": form})
+class AthleteUpdateView(UpdateView):
+    """View for updating an athlete."""
+    model = Athlete
+    form_class = AthleteForm
+    template_name = "profiles/athlete_form.html"
+
+    def get_success_url(self):
+        return reverse_lazy("athlete_detail", kwargs={"pk": self.object.pk})
 
 
-def athlete_delete(request, pk):
-    """View function for deleting an athlete."""
-    athlete = get_object_or_404(Athlete, pk=pk)
-    if request.method == "POST":
-        athlete.delete()
-        return redirect("athlete_list")
-    return render(request, "athletes/athlete_confirm_delete.html", {"athlete": athlete})
+class AthleteDeleteView(DeleteView):
+    """View for deleting an athlete."""
+    model = Athlete
+    template_name = "profiles/athlete_confirm_delete.html"
+    success_url = reverse_lazy("athlete_list")
+
