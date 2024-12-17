@@ -1,3 +1,5 @@
 from django.contrib import admin
+from documentation.models.sport_certificates import SportCertificate
 
-# Register your models here.
+
+admin.site.register(SportCertificate)

@@ -53,6 +53,8 @@ INSTALLED_APPS = [
     'users',
     'home',
     'products',
+    'profiles',
+    'documentation',
 ]
 
 MIDDLEWARE = [
