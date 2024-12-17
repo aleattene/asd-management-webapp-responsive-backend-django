@@ -27,6 +27,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     # Templates
     path('products/', include('products.urls')),
+    path('profiles/', include('profiles.urls')),
     # APIs
     path('api/', include('products.api.urls'))
 ]
