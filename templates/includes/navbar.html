@@ -15,7 +15,91 @@
     <!-- Navbar Links -->
     <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+
         <!-- Temporary -->
+        <!-- Dropdown Athletes Handler -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#"
+             id="athletes-handler"
+             role="button" data-bs-toggle="dropdown" aria-expanded="false"
+          > Gestione Atleti
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="athletes-handler">
+            <li><a class="dropdown-item" href="#">Elenco Atleti</a></li>
+            <li><a class="dropdown-item" href="#">Inserisci Nuovo Atleta</a></li>
+          </ul>
+        </li>
+
+        <!-- Temporary -->
+        <!-- Dropdown Trainers Handler -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#"
+             id="trainers-handler"
+             role="button" data-bs-toggle="dropdown" aria-expanded="false"
+          > Gestione Tecnici
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="trainers-handler">
+            <li><a class="dropdown-item" href="#">Elenco Tecnici</a></li>
+            <li><a class="dropdown-item" href="#">Inserisci Nuovo Tecnici</a></li>
+          </ul>
+        </li>
+
+         <!-- Temporary -->
+        <!-- Dropdown Doctors Handler -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#"
+             id="doctors-handler"
+             role="button" data-bs-toggle="dropdown" aria-expanded="false"
+          > Gestione Medici
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="doctors-handler">
+            <li><a class="dropdown-item" href="#">Elenco Medici</a></li>
+            <li><a class="dropdown-item" href="#">Inserisci Nuovo Medico</a></li>
+          </ul>
+        </li>
+
+         <!-- Temporary -->
+        <!-- Dropdown Documentation -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#"
+             id="documentation-handler"
+             role="button" data-bs-toggle="dropdown" aria-expanded="false"
+          > Documentazione
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="documentation-handler">
+            <li><a class="dropdown-item" href="#">Elenco Certificati Medici</a></li>
+            <li><a class="dropdown-item" href="#">Inserisci Nuovo Certificato Medico</a></li>
+          </ul>
+        </li>
+
+
+        <!-- Dropdown Authentication -->
+        <li class="nav-item dropdown">
+          <a
+                  class="nav-link dropdown-toggle" href="#"
+                  id="authentication-dropdown"
+                  role="button" data-bs-toggle="dropdown" aria-expanded="false"
+          >
+            {% if user.is_authenticated %}
+              Esci
+            {% else %}
+              Accedi
+            {% endif %}
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="authentication-dropdown">
+              <li><a class="dropdown-item" href="#">Esci</a></li>
+              <li><a
+                      class="dropdown-item"
+                      href="https://aleattene.github.io/pcto-deffenu-informatica-frontend/"
+                      target="_blank"
+              >Accedi</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Registrati</a></li>
+          </ul>
+        </li>
+
+        <!-- Temporary -->
+        <!--
         <li class="nav-item dropdown me-2">
           <a class="nav-link dropdown-toggle active" href="#" id="sportwig" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Sportwig
@@ -26,8 +110,10 @@
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="#}">Logout</a></li>
           </ul>
-
+        </li>
+        -->
         <!-- Dropdown Gestione Operatori -->
+        <!--
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="gestioneOperatoriDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Gestione Operatori
@@ -42,8 +128,9 @@
             <li><a class="dropdown-item" href="#}">Logout</a></li>
           </ul>
         </li>
-
+        -->
         <!-- Dropdown Gestione Utente -->
+        <!--
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="gestioneUtenteDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Gestione Utente
@@ -56,8 +143,10 @@
             <li><a class="dropdown-item" href="#}">Logout</a></li>
           </ul>
         </li>
+        -->
 
         <!-- Dropdown Admin -->
+        <!--
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="profiloDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Admin
@@ -70,6 +159,7 @@
             <li><a class="dropdown-item" href="#}">Logout</a></li>
           </ul>
         </li>
+        -->
       </ul>
     </div>
   </div>

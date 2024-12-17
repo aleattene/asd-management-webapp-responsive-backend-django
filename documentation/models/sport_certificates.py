@@ -17,9 +17,15 @@ class SportCertificate(models.Model):
 
     class Meta:
         verbose_name = "Certificato Medico Sportivo"
-        verbose_name_plural = "Certificati Medici Sportivi"
+        verbose_name_plural = "Certificati Medico Sportivi"
         ordering = ["-issued_date"]
 
     def __str__(self):
         return (f"Certificato {self.facility_id} - Emesso il {self.issued_date} "
                 f"da {self.doctor}")
+
+    def __repr__(self):
+        return (f"SportCertificate(facility_id={self.facility_id}, issued_date={self.issued_date}, "
+                f"expiration_date={self.expiration_date}, doctor={self.doctor})")
+
+
