@@ -50,7 +50,7 @@ INSTALLED_APPS = [
     'django_extensions',
     #
     'config',
-    'users',
+    # 'users',
     'home',
     'products',
     'profiles',
