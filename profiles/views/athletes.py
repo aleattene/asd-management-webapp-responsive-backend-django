@@ -23,7 +23,7 @@ class AthleteCreateView(CreateView):
     model = Athlete
     form_class = AthleteForm
     template_name = "profiles/athlete_form.html"
-    success_url = reverse_lazy("athlete_list")
+    success_url = reverse_lazy("athletes_list")
 
 
 class AthleteUpdateView(UpdateView):
@@ -40,5 +40,5 @@ class AthleteDeleteView(DeleteView):
     """View for deleting an athlete."""
     model = Athlete
     template_name = "profiles/athlete_confirm_delete.html"
-    success_url = reverse_lazy("athlete_list")
+    success_url = reverse_lazy("athletes_list")
 
