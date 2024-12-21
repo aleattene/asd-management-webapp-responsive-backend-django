@@ -28,6 +28,7 @@ urlpatterns = [
     # Templates
     path('products/', include('products.urls')),
     path('profiles/', include('profiles.urls')),
+    path('documentation/', include('documentation.urls')),
     # APIs
     path('api/', include('products.api.urls'))
 ]

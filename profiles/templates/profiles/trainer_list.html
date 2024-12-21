@@ -4,7 +4,7 @@
     <h1>Lista Tecnici</h1>
     <a href="{% url 'trainer_create' %}">Aggiungi un nuovo tecnico</a>
     <ul>
-        {% for trainer in trainers_list %}
+        {% for trainer in trainer_list %}
             <li>
                 <a href="{% url 'trainer_detail' trainer.pk %}">
                     {{ trainer.first_name }} {{ trainer.last_name }}

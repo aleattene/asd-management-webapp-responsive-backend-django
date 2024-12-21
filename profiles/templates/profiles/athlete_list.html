@@ -4,7 +4,7 @@
     <h1>Lista Atleti</h1>
     <a href="{% url 'athlete_create' %}">Aggiungi un nuovo atleta</a>
     <ul>
-        {% for athlete in athletes_list %}
+        {% for athlete in athlete_list %}
             <li>
                 <a href="{% url 'athlete_detail' athlete.pk %}">
                     {{ athlete.first_name }} {{ athlete.last_name }}

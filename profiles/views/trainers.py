@@ -7,8 +7,8 @@ from profiles.forms.trainers import TrainerForm
 class TrainerListView(ListView):
     """View for listing all trainers."""
     model = Trainer
-    template_name = "profiles/trainers_list.html"
-    context_object_name = "trainers_list"
+    template_name = "profiles/trainer_list.html"
+    context_object_name = "trainer_list"
 
 
 class TrainerDetailView(DetailView):
@@ -23,7 +23,7 @@ class TrainerCreateView(CreateView):
     model = Trainer
     form_class = TrainerForm
     template_name = "profiles/trainer_form.html"
-    success_url = reverse_lazy("trainers_list")
+    success_url = reverse_lazy("trainer_list")
 
 
 class TrainerUpdateView(UpdateView):
@@ -40,4 +40,4 @@ class TrainerDeleteView(DeleteView):
     """View for deleting an athlete."""
     model = Trainer
     template_name = "profiles/trainer_confirm_delete.html"
-    success_url = reverse_lazy("trainers_list")
+    success_url = reverse_lazy("trainer_list")

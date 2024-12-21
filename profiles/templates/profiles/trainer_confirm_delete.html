@@ -7,8 +7,8 @@
     <form method="post">
         {% csrf_token %}
         <button type="submit">Elimina</button>
-        <a href="{% url 'trainers_list' %}">Annulla</a>
+        <a href="{% url 'trainer_list' %}">Annulla</a>
     </form>
 
-   <a href="{% url 'trainers_list' %}">Torna alla lista</a>
+   <a href="{% url 'trainer_list' %}">Torna alla lista</a>
 {% endblock %}
