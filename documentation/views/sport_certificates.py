@@ -23,6 +23,7 @@ class SportCertificateCreateView(CreateView):
     model = SportCertificate
     form_class = SportCertificateForm
     template_name = "documentation/sport_certificate_form.html"
+    # Redirect to the list view after creation (status code 302)
     success_url = reverse_lazy("sport_certificate_list")
 
 
@@ -32,6 +33,7 @@ class SportCertificateUpdateView(UpdateView):
     form_class = SportCertificateForm
     template_name = "documentation/sport_certificate_form.html"
 
+    # Override the get_success_url method to redirect (302) to the detail view after updating
     def get_success_url(self):
         return reverse_lazy("sport_certificate_detail", kwargs={"pk": self.object.pk})
 
@@ -40,4 +42,5 @@ class SportCertificateDeleteView(DeleteView):
     """View for deleting a sport certificate."""
     model = SportCertificate
     template_name = "documentation/sport_certificate_confirm_delete.html"
+    # Redirect to the list view after deletion (status code 302)
     success_url = reverse_lazy("sport_certificate_list")
