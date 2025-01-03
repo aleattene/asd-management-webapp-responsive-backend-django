@@ -10,9 +10,7 @@ class Athlete(models.Model):
     fiscal_code = models.CharField(max_length=16, unique=True, verbose_name="Codice Fiscale")
     category = models.ForeignKey(
         "Category",
-        on_delete=models.SET_NULL,
-        null=True,
-        blank=True,
+        on_delete=models.PROTECT,
         verbose_name="Categoria",
         related_name="athletes"
     )
@@ -41,7 +39,7 @@ class Athlete(models.Model):
 
 class Category(models.Model):
     code = models.CharField(max_length=4, unique=True)
-    name = models.CharField(max_length=50)
+    description = models.CharField(max_length=50)
     age_range = models.CharField(max_length=20, blank=True, null=True)
 
     class Meta:
