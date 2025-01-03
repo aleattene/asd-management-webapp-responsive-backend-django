@@ -48,7 +48,7 @@ class Category(models.Model):
         # ordering = ["code"]
 
     def __str__(self):
-        return f"{self.code} - {self.name}"
+        return f"{self.code} - {self.description}"
 
     def __repr__(self):
-        return f"Category(code={self.code}, name={self.name}, age_range={self.age_range})"
+        return f"Category(code={self.code}, description={self.description}, age_range={self.age_range})"

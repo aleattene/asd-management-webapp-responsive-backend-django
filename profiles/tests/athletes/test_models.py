@@ -4,7 +4,6 @@ from profiles.models.trainers import Trainer
 
 
 class AthleteModelTest(TestCase):
-
     @classmethod
     def setUpTestData(cls):
         """Create a valid instance of Category and Trainer shared by all tests."""
@@ -50,7 +49,6 @@ class AthleteModelTest(TestCase):
         self.assertEqual(self.athlete.trainer.last_name, 'Bianchi')
         self.assertEqual(self.athlete.trainer.fiscal_code, 'BNCPLO80A01H211B')
 
-
     def test_athlete_string_representation(self):
         """Test __str__ method."""
         self.assertEqual(
@@ -72,3 +70,56 @@ class AthleteModelTest(TestCase):
     def test__athlete_required_fields(self):
         """Test that required fields cannot be left empty."""
         pass
+
+
+class CategoryModelTest(TestCase):
+    @classmethod
+    def setUpTestData(cls):
+        """Create a valid instance of Category shared by all tests."""
+        cls.category = Category.objects.create(
+            code='AF',
+            description='Allieve Femminili',
+            age_range='Under 18',
+        )
+
+    def test_category_creation(self):
+        """Test creating a new category."""
+        self.assertEqual(self.category.code, 'AF')
+        self.assertEqual(self.category.description, 'Allieve Femminili')
+        self.assertEqual(self.category.age_range, 'Under 18')
+
+    def test_category_required_fields(self):
+        """Test that required fields cannot be left empty."""
+        pass
+
+    def test_category_code_uniqueness(self):
+        """Test that the code must be unique."""
+        pass
+
+    def test_category_optional_age_range(self):
+        """Test that the age range can be left empty."""
+        category = Category.objects.create(
+            code='SN',
+            description='Senior',
+            age_range=None
+        )
+        self.assertIsNone(category.age_range)
+
+    def test_category_string_representation(self):
+        """Test __str__ method."""
+        self.assertEqual(
+            str(self.category),
+            'AF - Allieve Femminili'
+        )
+
+    def test_category_repr_representation(self):
+        """Test __repr__ method."""
+        self.assertEqual(
+            repr(self.category),
+            'Category(code=AF, description=Allieve Femminili, age_range=Under 18)'
+        )
+
+    def test_category_ordering(self):
+        """Test ordering by code."""
+        pass
+
