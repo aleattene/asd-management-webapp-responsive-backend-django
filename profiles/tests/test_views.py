@@ -1,5 +1,5 @@
 from django.test import TestCase
 
 
-class ProfileViewsTest(TestCase):
+class ProfilesViewsTest(TestCase):
     pass

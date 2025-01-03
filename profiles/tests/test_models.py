@@ -1,7 +1,7 @@
 from django.test import TestCase
 
 
-class ProfileModelTest(TestCase):
+class ProfilesModelTest(TestCase):
     pass
 
 
