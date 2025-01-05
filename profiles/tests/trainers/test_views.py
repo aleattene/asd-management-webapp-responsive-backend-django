@@ -61,7 +61,7 @@ class TrainerViewsTest(TestCase):
             'fiscal_code': 'RSSMRA90A01H211C',
         }
         response = self.client.post(url, payload)
-        self.assertEqual(response.status_code, 302)  # Redirect after update
+        self.assertEqual(response.status_code, 302)
         self.trainer.refresh_from_db()
         self.assertEqual(self.trainer.first_name, 'Mario Updated')
         self.assertEqual(self.trainer.last_name, 'Rossi')

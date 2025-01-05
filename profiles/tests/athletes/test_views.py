@@ -88,7 +88,7 @@ class AthleteViewsTest(TestCase):
             'trainer': self.trainer.pk
         }
         response = self.client.post(url, payload)
-        self.assertEqual(response.status_code, 302)  # Redirect after update
+        self.assertEqual(response.status_code, 302)
         self.athlete.refresh_from_db()
         self.assertEqual(self.athlete.first_name, 'Mario Updated')
         self.assertEqual(self.athlete.last_name, 'Rossi')
