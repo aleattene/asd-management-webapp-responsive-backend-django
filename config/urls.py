@@ -34,6 +34,22 @@ urlpatterns = [
 ]
 
 
+urlpatterns += [
+    path('accounts/', include('accounts.urls')),
+    # User Authentication
+    path('accounts/', include('django.contrib.auth.urls')),
+    # Login: /accounts/login/
+    # Logout: /accounts/logout/
+    # Password Change: /accounts/password_change/
+    # Password Change Done: /accounts/password_change/done/
+    # Password Reset: /accounts/password_reset/
+    # Password Reset Done: /accounts/password_reset/done/
+    # Password Reset Confirm: /accounts/reset/<uidb64>/<token>/
+    # Password Reset Complete: /accounts/reset/done/
+
+]
+
+
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.BASE_DIR / 'static')
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

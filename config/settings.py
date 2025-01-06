@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 import os
-import sys
 
 import environ
 from pathlib import Path
@@ -49,6 +48,7 @@ INSTALLED_APPS = [
     #
     'django_extensions',
     #
+    'accounts',
     'config',
     # 'users',
     'home',
@@ -196,3 +196,11 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Custom Model to use for authentication
 # AUTH_USER_MODEL = 'users.CustomUser'
+
+# Development Email settings (in production, use the real email server)
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/accounts/logout/'
+LOGIN_URL = '/accounts/login/'
+
