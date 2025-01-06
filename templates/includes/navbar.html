@@ -4,18 +4,21 @@
   <div class="container-fluid">
     <!-- Brand -->
     <a class="navbar-brand" href="/">
-      <img src="{% static 'img/logo.jpg' %}" alt="ASD-Logo" width="100" height="auto" class="d-inline-block align-text-top">
+      <img src="{% static 'img/logo.jpg' %}" alt="ASD-Logo" width="100" height="auto"
+           class="d-inline-block align-text-top">
     </a>
 
     <!-- Toggler Button -->
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
+            aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <!-- Navbar Links -->
     <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-
+        {% if user.is_authenticated %}
+        {% if user.is_staff or user.is_superuser %}
         <!-- Temporary -->
         <!-- Dropdown Athletes Handler -->
         <li class="nav-item dropdown">
@@ -44,7 +47,7 @@
           </ul>
         </li>
 
-         <!-- Temporary -->
+        <!-- Temporary -->
         <!-- Dropdown Doctors Handler -->
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#"
@@ -54,12 +57,14 @@
           </a>
           <ul class="dropdown-menu" aria-labelledby="doctors-handler">
             <li><a class="dropdown-item" href="{% url 'sport_doctor_list' %}">Elenco Medici</a></li>
-            <li><a class="dropdown-item" href="{% url 'sport_doctor_create' %}">Inserisci Nuovo Medico</a></li>
+            <li><a class="dropdown-item" href="{% url 'sport_doctor_create' %}">Inserisci Nuovo Medico</a>
+            </li>
           </ul>
         </li>
 
-         <!-- Temporary -->
+        <!-- Temporary -->
         <!-- Dropdown Documentation -->
+
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#"
              id="documentation-handler"
@@ -67,65 +72,76 @@
           > Documentazione
           </a>
           <ul class="dropdown-menu" aria-labelledby="documentation-handler">
-            <li><a class="dropdown-item" href="{% url 'sport_certificate_list' %}">Elenco Certificati Medici</a></li>
-            <li><a class="dropdown-item" href="{% url 'sport_certificate_create' %}">Inserisci Nuovo Certificato Medico</a></li>
+            <li><a class="dropdown-item" href="{% url 'sport_certificate_list' %}">Elenco Certificati
+              Medici</a></li>
+            <li><a class="dropdown-item" href="{% url 'sport_certificate_create' %}">Inserisci Nuovo
+              Certificato Medico</a></li>
           </ul>
         </li>
+        {% endif %}
+        {% endif %}
 
 
         <!-- Dropdown Authentication -->
-<li class="nav-item dropdown">
-    <a
-        class="nav-link dropdown-toggle"
-        href="#"
-        id="authentication-dropdown"
-        role="button"
-        data-bs-toggle="dropdown"
-        aria-expanded="false"
-    >
-        {% if user.is_authenticated %}
+        <li class="nav-item dropdown">
+          <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  id="authentication-dropdown"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+          >
+            {% if user.is_authenticated %}
             👤 {{ user.username }}
-        {% else %}
+            {% else %}
             🔑 Autenticazione
-        {% endif %}
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="authentication-dropdown">
-        {% if user.is_authenticated %}
-            <li>
-                <a class="dropdown-item" href="#">
-                    📋 Profilo
-                </a>
-            </li>
-            <li>
-                <form method="post" action="{% url 'logout' %}">
-                    {% csrf_token %}
-                    <button type="submit" class="dropdown-item">
-                        🚪 Esci
-                    </button>
-                </form>
-            </li>
-            {% if user.is_staff or user.is_superuser %}
-                <li><hr class="dropdown-divider"></li>
-                <li>
-                    <a class="dropdown-item" href="/admin/">
-                        ⚙️ Admin Area
-                    </a>
-                </li>
             {% endif %}
-        {% else %}
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="authentication-dropdown">
+            {% if user.is_authenticated %}
             <li>
-                <a class="dropdown-item" href="{% url 'login' %}">
-                    🔓 Accedi
-                </a>
+              <a class="dropdown-item" href="#">
+                📋 Visualizza Profilo
+              </a>
             </li>
             <li>
-                <a class="dropdown-item" href="{% url 'signup' %}">
-                    📝 Registrati
-                </a>
+              <a class="dropdown-item" href="{% url 'password_change' %}">
+                🔑 Cambia Password
+            </a>
+        </li>
+            <li>
+              <form method="post" action="{% url 'logout' %}">
+                {% csrf_token %}
+                <button type="submit" class="dropdown-item">
+                  🚪 Esci
+                </button>
+              </form>
             </li>
-        {% endif %}
-    </ul>
-</li>
+            {% if user.is_superuser %}
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li>
+              <a class="dropdown-item" href="/admin/">
+                ⚙️ Admin Area
+              </a>
+            </li>
+            {% endif %}
+            {% else %}
+            <li>
+              <a class="dropdown-item" href="{% url 'login' %}">
+                🔓 Accedi
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="{% url 'signup' %}">
+                📝 Registrati
+              </a>
+            </li>
+            {% endif %}
+          </ul>
+        </li>
 
 
         <!-- Temporary -->
