@@ -74,32 +74,59 @@
 
 
         <!-- Dropdown Authentication -->
-        <li class="nav-item dropdown">
-          <a
-                  class="nav-link dropdown-toggle" href="#"
-                  id="authentication-dropdown"
-                  role="button" data-bs-toggle="dropdown" aria-expanded="false"
-          >
-            {% if user.is_authenticated %}
-              Esci
-            {% else %}
-              Accedi
+<li class="nav-item dropdown">
+    <a
+        class="nav-link dropdown-toggle"
+        href="#"
+        id="authentication-dropdown"
+        role="button"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+    >
+        {% if user.is_authenticated %}
+            👤 {{ user.username }}
+        {% else %}
+            🔑 Autenticazione
+        {% endif %}
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="authentication-dropdown">
+        {% if user.is_authenticated %}
+            <li>
+                <a class="dropdown-item" href="#">
+                    📋 Profilo
+                </a>
+            </li>
+            <li>
+                <form method="post" action="{% url 'logout' %}">
+                    {% csrf_token %}
+                    <button type="submit" class="dropdown-item">
+                        🚪 Esci
+                    </button>
+                </form>
+            </li>
+            {% if user.is_staff or user.is_superuser %}
+                <li><hr class="dropdown-divider"></li>
+                <li>
+                    <a class="dropdown-item" href="/admin/">
+                        ⚙️ Admin Area
+                    </a>
+                </li>
             {% endif %}
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="authentication-dropdown">
-              <li><a class="dropdown-item" href="#">Esci</a></li>
-              <li><a
-                      class="dropdown-item"
-                      href="https://aleattene.github.io/pcto-deffenu-informatica-frontend/"
-                      target="_blank"
-              >Accedi</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Registrati</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="admin/">Admin Area</a></li>
+        {% else %}
+            <li>
+                <a class="dropdown-item" href="{% url 'login' %}">
+                    🔓 Accedi
+                </a>
+            </li>
+            <li>
+                <a class="dropdown-item" href="{% url 'signup' %}">
+                    📝 Registrati
+                </a>
+            </li>
+        {% endif %}
+    </ul>
+</li>
 
-          </ul>
-        </li>
 
         <!-- Temporary -->
         <!--
